@@ -78,6 +78,11 @@ public class UserFrontController extends HttpServlet {
 			result = new CheckNicknameOkController().execute(request, response);
 			System.out.println("닉네임 중복확인 완료");
 			break;
+		case "/user/checkEmailOk.us":
+			System.out.println("이메일 중복확인 요청");
+			result = new CheckEmailOkController().execute(request, response);
+			System.out.println("이메일 중복확인 완료");
+			break;
 		case "/user/signupShelter.us":
 			System.out.println("보호소 회원가입 페이지 요청");
 			result = new Result();
