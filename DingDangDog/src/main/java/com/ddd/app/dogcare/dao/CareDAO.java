@@ -28,15 +28,15 @@ public class CareDAO {
     // 멍! 케어 목록 조회
     public List<CareListDTO> selectCareList(Map<String, Integer> pageMap) {
         System.out.println("멍! 케어 목록 조회 실행 : " + pageMap);
-        List<CareListDTO> list = sqlSession.selectList("care.selectAll", pageMap);
-        System.out.println("조회된 멍! 케어 게시글 수 : " + list.size());
+        List<CareListDTO> list = sqlSession.selectList("care.selectCareList", pageMap);
+        System.out.println("조회된 멍! 케어 게시글 수 : " + list);
         return list;
     }
 
     // 멍! 케어 상세 조회
     public CareDetailDTO selectCare(int careNumber) {
         System.out.println("멍! 케어 상세 조회 실행 : " + careNumber);
-        CareDetailDTO dto = sqlSession.selectOne("care.selectCare", careNumber);
+        CareDetailDTO dto = sqlSession.selectOne("care.getDetail", careNumber);
         System.out.println("조회 결과 : " + dto);
         return dto;
     }

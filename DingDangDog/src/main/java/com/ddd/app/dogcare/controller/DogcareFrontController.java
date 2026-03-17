@@ -34,13 +34,15 @@ public class DogcareFrontController extends HttpServlet {
         case "/care/list.care":
             System.out.println("케어 목록 요청");
             result = new CareListController().execute(request, response);
+            System.out.println("케어 목록 처리 완료");
             break;
         case "/care/detail.care":
-            System.out.println("케어 상세 요청");
+            System.out.println("케어 상세페이지 요청");
             result = new CareDetailController().execute(request, response);
+            System.out.println("케어 상세페이지 처리 완료");
             break;
         case "/care/write.care":
-            System.out.println("케어 글 작성 요청");
+            System.out.println("케어 글 작성페이지 이동 요청");
             result = new CareWriteController().execute(request, response);
             break;
         case "/care/update.care":
