@@ -35,12 +35,10 @@ public class DogLogCommentDeleteOkController implements Execute {
 		LogCommentDTO deleteTargetComment = deleteCommentDAO.selectComment(deleteCommentNumber);
 
 		if (deleteTargetComment == null) {
-			response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}
 
 		if (deleteTargetComment.getUserNumber() != deleteUserNumber) {
-			response.sendError(HttpServletResponse.SC_FORBIDDEN);
 			return null;
 		}
 

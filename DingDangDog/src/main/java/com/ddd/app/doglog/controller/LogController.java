@@ -59,6 +59,11 @@ public class LogController extends HttpServlet {
 			System.out.println("멍! 로그 목록 요청");
 			result = new DogLogListController().execute(request, response);
 			break;
+			
+		case "/log/listSearch.lo":
+			System.out.println("멍! 로그 목록 요청");
+			result = new DogLogListSearchController().execute(request, response);
+			break;
 
 		case "/log/detail.lo":
 			System.out.println("멍! 로그 상세 요청");

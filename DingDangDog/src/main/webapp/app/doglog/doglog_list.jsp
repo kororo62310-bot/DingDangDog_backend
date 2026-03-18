@@ -63,8 +63,8 @@
                       </span>
 
                       <span class="doglog-date">
-                        <c:if test="${not empty log.logDate}">
-                          ${log.logDate}
+                        <c:if test="${not empty logDateStr}">
+                          ${logDateStr}
                         </c:if>
                       </span>
                     </div>
@@ -82,12 +82,12 @@
         </c:choose>
       </div>
 
-      <form class="search-box" action="${pageContext.request.contextPath}/log/list.lo" method="get">
+      <form class="search-box" action="${pageContext.request.contextPath}/log/listSearch.lo" method="get">
         <select class="search-select" name="searchType">
           <option value="writer">작성자명</option>
           <option value="title">제목</option>
         </select>
-        <input type="text" class="search-input" name="keyword">
+        <input type="text" class="search-input" name="keyword" value="${keyword}">
         <button type="submit" class="btn-search">검색</button>
       </form>
     </div>

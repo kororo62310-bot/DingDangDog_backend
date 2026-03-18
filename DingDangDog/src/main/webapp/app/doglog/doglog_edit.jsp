@@ -63,8 +63,8 @@
               </div>
 
               <div class="detail-info-date" id="editDate">
-                <c:if test="${not empty log.logDate}">
-                  ${log.logDate}
+                <c:if test="$not empty ${logDateStr}">
+                  ${logDateStr}
                 </c:if>
               </div>
             </div>

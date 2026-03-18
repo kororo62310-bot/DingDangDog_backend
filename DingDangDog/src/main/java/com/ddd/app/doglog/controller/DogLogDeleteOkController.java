@@ -42,12 +42,10 @@ public class DogLogDeleteOkController implements Execute {
 		LogDTO log = logDAO.select(logNumber);
 
 		if (log == null) {
-			response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			return null;
 		}
 
 		if (log.getUserNumber() != userNumber) {
-			response.sendError(HttpServletResponse.SC_FORBIDDEN);
 			return null;
 		}
 

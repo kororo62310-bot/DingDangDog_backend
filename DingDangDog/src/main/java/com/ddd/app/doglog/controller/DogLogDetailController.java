@@ -1,6 +1,8 @@
 package com.ddd.app.doglog.controller;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -34,7 +36,14 @@ public class DogLogDetailController implements Execute {
 		List<LogImgDTO> imageList = detailImgDAO.selectImageList(logNumber);
 		List<LogCommentDTO> commentList = logCommentDAO.selectCommentList(logNumber);
 
+		String logDateStr = "";
+		if (log != null && log.getLogDate() != null) {
+			LocalDateTime logDate = log.getLogDate();
+			logDateStr = logDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+		}
+
 		request.setAttribute("log", log);
+		request.setAttribute("logDateStr", logDateStr);
 		request.setAttribute("imageList", imageList);
 		request.setAttribute("commentList", commentList);
 
