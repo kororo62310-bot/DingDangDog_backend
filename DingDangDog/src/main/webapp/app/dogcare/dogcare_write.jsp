@@ -19,30 +19,24 @@
 			<div class="main-content">
 				<div class="content-header">멍! 케어 일정 등록</div>
 				<!-- form 시작 -->
-				<form action="${pageContext.request.contextPath}/care/write.care"
+				<form action="${pageContext.request.contextPath}/care/write.ca"
 					method="post">
-
 					<div class="dogcare-write-container">
-
 						<!-- 제목 -->
 						<div class="write-title">제목</div>
 						<div class="write-box-container">
 							<input class="title-write-box" type="text" name="careTitle"
 								placeholder="제목을 입력하세요" required>
-
 							<!-- 모집 인원 -->
 							<div class="dogcare-number">
 								<label>모집 인원</label> <input type="number" name="careRecruit"
 									placeholder="모집 인원" min="1" required />
 							</div>
-
 							<!-- 날짜 -->
 							<div class="dogcare-date">
 								<label>일정</label> <input type="date" name="careDate" required />
 							</div>
-
 						</div>
-
 						<!-- 내용 -->
 						<div class="write-main-container">
 							<div class="write-main">상세 내용</div>
@@ -51,7 +45,6 @@
 									placeholder="내용을 입력하세요" required></textarea>
 							</div>
 						</div>
-
 						<!-- 버튼 -->
 						<div class="detail-footer-container">
 							<div>

@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/dogcare/dogcare_detail.css" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/dogcare/dogcare_list_shelter.css">
   <script defer src="${pageContext.request.contextPath}/assets/js/dogcare/report_modal.js"></script>
-  <script defer src="${pageContext.request.contextPath}/assets/js/dogcare/dogcare_detail_shelter.js"></script>
 </head>
 
 <body>
@@ -42,7 +41,7 @@
       </div>
     </div>
     <div class="detail-footer-container">
-      <button class="btn-list" id="listBtn">
+      <button class="btn-list" onclick="location.href='${pageContext.request.contextPath}/care/list.ca'">
         목록으로
       </button>
       <div class="footer-right">
@@ -58,58 +57,83 @@
   <!-- js -->
   <script src="/assets/js/header-footer.js"></script>
 
-  <!-- 신고 모달창 -->
-  <div id="applyModal" class="modal">
+<!-- 신고 모달창 -->
+<div id="applyModal" class="modal">
 
-    <div class="modal-content">
+  <div class="modal-content">
 
-      <div class="modal-header">
-        <span>신청자 목록</span>
-        <button id="modalClose" class="modal-close">X</button>
-      </div>
+    <div class="modal-header">
+      <span>신청자 목록</span>
+      <button id="modalClose" class="modal-close">X</button>
+    </div>
 
-      <div class="modal-body">
-        <div class="apply-header">
-          <div>닉네임</div>
-          <div>이름</div>
-          <div>휴대폰 번호</div>
+    <div class="modal-body">
+
+      <div class="apply-header">
+        <div>닉네임</div>
+        <div>이름</div>
+        <div>휴대폰 번호</div>
+
+        <c:if test="${care.careStatus eq 'close'}">
           <div>신고 사유</div>
-          <div>신고</div>
-        </div>
-
-        <div class="apply-row">
-          <div>happyDog</div>
-          <div>김철수</div>
-          <div>010-0000-0000</div>
-          <div class="report-reason">
-            <label><input type="radio" name="report1" value="노쇼">노쇼</label>
-            <label><input type="radio" name="report1" value="태도불량">매너불량</label>
-            <label><input type="radio" name="report1" value="기타">기타</label>
-            <input type="text" class="etc-input" placeholder="사유 입력" disabled>
-          </div>
-          <div>
-            <button class="report-btn">신고</button>
-          </div>
-        </div>
-
-        <div class="apply-row">
-          <div>dogFriend</div>
-          <div>이영희</div>
-          <div>010-2222-2222</div>
-          <div class="report-reason">
-            <label><input type="radio" name="report2" value="노쇼">노쇼</label>
-            <label><input type="radio" name="report2" value="태도불량">태도불량</label>
-            <label><input type="radio" name="report2" value="기타">기타</label>
-            <input type="text" class="etc-input" placeholder="사유 입력" disabled>
-          </div>
-          <div>
-            <button class="report-btn">신고</button>
-          </div>
-        </div>
+        </c:if>
       </div>
+
+      <!-- 신청자 목록 -->
+      <c:forEach var="user" items="${applyList}" varStatus="status">
+
+        <div class="apply-row">
+          <div>${user.userNickname}</div>
+          <div>${user.userName}</div>
+          <div>${user.userPhone}</div>
+
+          <!-- ⭐ 신고 form -->
+          <c:if test="${care.careStatus eq 'close'}">
+
+            <form action="${pageContext.request.contextPath}/care/report.care" method="post">
+
+              <!-- 신고 대상 -->
+              <input type="hidden" name="userNumber" value="${user.userNumber}">
+              <input type="hidden" name="careNumber" value="${care.careNumber}">
+
+              <div class="report-reason">
+
+                <label>
+                  <input type="radio" name="reason" value="노쇼" required>노쇼
+                </label>
+
+                <label>
+                  <input type="radio" name="reason" value="태도불량">태도불량
+                </label>
+
+                <label>
+                  <input type="radio" name="reason" value="기타">기타
+                </label>
+
+                <input type="text" name="etcReason" placeholder="기타 사유 입력">
+
+                <div>
+                  <button type="submit" class="report-btn"
+                    onclick="return confirm('신고하시겠습니까?')">
+                    신고
+                  </button>
+                </div>
+
+              </div>
+
+            </form>
+
+          </c:if>
+
+        </div>
+
+      </c:forEach>
 
     </div>
+
   </div>
+
+</div>
 
 </body>
 

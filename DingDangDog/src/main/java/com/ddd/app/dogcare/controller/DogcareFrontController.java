@@ -71,6 +71,11 @@ public class DogcareFrontController extends HttpServlet {
             result = new CareWriteController().execute(request, response);
             System.out.println("케어 글 작성페이지 이동 완료");
             break;
+        case "/care/writeOk.ca":
+        	System.out.println("케어 글 작성 처리 요청");
+        	result = new CareWriteOkController().execute(request, response);
+        	System.out.println("케어 글 작성 완료 요청");
+        	break;
         case "/care/update.ca":
             System.out.println("케어 글 수정 요청");
             result = new CareUpdateController().execute(request, response);
