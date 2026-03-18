@@ -13,20 +13,23 @@ public class CareApplyController implements Execute{
 	public Result execute(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("CareApplyController 실행");
 
-		int careNumber = Integer.parseInt(request.getParameter("careNumber"));
-		int userNumber = Integer.parseInt(request.getParameter("userNumber"));
-
+		CareDAO careDAO = new CareDAO();
 		CareApplyDTO dto = new CareApplyDTO();
+		Result result = new Result();
+		
+		// 게시글 번호 받기
+		int careNumber = Integer.parseInt(request.getParameter("careNumber"));
+		// 회원 번호 받기
+		int userNumber = Integer.parseInt(request.getParameter("userNumber"));
+		
 		dto.setCareNumber(careNumber);
 		dto.setUserNumber(userNumber);
-
-		CareDAO careDAO = new CareDAO();
-
+		
+		// 봉사 신청
 		careDAO.applyCare(dto);
-
-		Result result = new Result();
+		
+		result.setPath("/app/care/detail.ca?careNumber=" + careNumber);
 		result.setRedirect(true);
-		result.setPath("/app/care/detail.care?careNumber=" + careNumber);
 
 		return result;
 	}

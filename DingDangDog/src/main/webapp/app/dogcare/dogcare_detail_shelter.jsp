@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 
@@ -5,10 +9,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>멍! 케어 상세페이지-보호소회원</title>
-  <link rel="stylesheet" href="../../assets/css/dogcare/dogcare_detail.css" />
-  <link rel="stylesheet" href="../../assets/css/dogcare/dogcare_list_shelter.css">
-  <script defer src="../../assets/js/dogcare/report_modal.js"></script>
-  <script defer src="../../assets/js/dogcare/dogcare_detail_shelter.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/dogcare/dogcare_detail.css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/dogcare/dogcare_list_shelter.css">
+  <script defer src="${pageContext.request.contextPath}/assets/js/dogcare/report_modal.js"></script>
+  <script defer src="${pageContext.request.contextPath}/assets/js/dogcare/dogcare_detail_shelter.js"></script>
 </head>
 
 <body>
@@ -21,18 +25,18 @@
       </div>
       <div class="dogcare-detail-container">
         <div class="detail-title">
-          산책 봉사 하러 오세요!!!
+          ${care.careTitle}
         </div>
         <div class="detail-info-container">
-          <div>작성자 : 행복보호소</div>
+          <div>작성자 : ${care.userNickname}</div>
           <div class="info-right">
-            <div>봉사날짜 : 2026-03-20</div>
-            <div>작성일자 : 2026-03-06</div>
+            <div>봉사날짜 : ${care.careDate}</div>
+            <div>작성일자 : ${care.careWriteDate}</div>
           </div>
         </div>
         <div class="detail-main-container">
           <div class="detail-main-post">
-            게시글 내용이 들어가는 영역입니다.
+             ${care.carePost}
           </div>
         </div>
       </div>
@@ -43,11 +47,9 @@
       </button>
       <div class="footer-right">
         <div class="apply-status" id="applyStatusBtn">
-          신청 현황 <span id="applyCount">12</span>/15
+          신청 현황 <span id="applyCount">${care.applyCount}</span>/${care.careRecruit}
         </div>
-        <button class="btn-apply" id="applyBtn">
-          신청하기
-        </button>
+
       </div>
     </div>
   </main>
