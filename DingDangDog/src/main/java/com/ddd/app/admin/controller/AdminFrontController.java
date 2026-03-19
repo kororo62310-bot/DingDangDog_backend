@@ -96,6 +96,16 @@ public class AdminFrontController extends HttpServlet {
 		case "/admin/adminCareListOk.ad":
 			System.out.println("멍! 케어 페이지 요청");
 			result = new AdminCareListOkController().execute(request, response);
+			System.out.println("명! 케어 페이지 이동");
+		case "/admin/adminCareDetailOk.ad":
+			System.out.println("멍! 케어 상세페이지 요청");
+			result = new AdminCareDetailOkController().execute(request, response);
+			System.out.println("멍! 케어 상세페이지 이동");
+		case "/admin/adminCareDeleteOk.ad":
+			System.out.println("멍! 케어 상세페이지 삭제 요청");
+			result = new AdminCareDeleteOkController().execute(request, response);
+			System.out.println("멍! 케어 상세페이지 삭제 완료");
+			
 		}
 
 		if (result != null && result.getPath() != null) {

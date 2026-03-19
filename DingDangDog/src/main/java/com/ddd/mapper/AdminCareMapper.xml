@@ -42,7 +42,7 @@
 	</select>
 
 
-	<!-- 신청자 현황 -->
+	<!-- 신청 현황 -->
 	<select id="selectApplyStatus" parameterType="String"
 		resultType="AdminCareDTO">
 		SELECT

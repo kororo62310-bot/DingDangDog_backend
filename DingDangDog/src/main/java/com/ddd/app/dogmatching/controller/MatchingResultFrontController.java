@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.ddd.app.Result;
 
-public class MatchingFrontController extends HttpServlet {
+public class MatchingResultFrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,7 +43,7 @@ public class MatchingFrontController extends HttpServlet {
 
 		// ===== 매칭 제출 =====
 		case "/matching/matchingOk.matching": // 설문 저장 로직 실행
-			result = new MatchingOkController().execute(request, response);
+			result = new MatchingResultOkController().execute(request, response);
 			break;
 
 		// ===== 매칭 결과 =====
@@ -53,7 +53,7 @@ public class MatchingFrontController extends HttpServlet {
 
 		// ===== 매칭 리스트 =====
 		case "/matching/list.matching": // 내 매칭 기록 목록 조회
-			result = new MatchingListController().execute(request, response);
+			result = new MatchingResultListController().execute(request, response);
 			break;
 		}
 
