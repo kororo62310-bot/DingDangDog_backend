@@ -24,7 +24,8 @@
 		<url-pattern>*.us</url-pattern>
 	</servlet-mapping>
 
-	<!-- 멍로그 매핑 -->
+
+	<!-- 멍! 로그 매핑 -->
 	<servlet>
 		<servlet-name>log</servlet-name>
 		<servlet-class>com.ddd.app.doglog.controller.LogController</servlet-class>
@@ -37,11 +38,11 @@
 	<!-- 멍! 케어 매핑 -->
 	<servlet>
 		<servlet-name>care</servlet-name>
-		<servlet-class>com.ddd.app.dogcare.controller.CareFrontController</servlet-class>
+		<servlet-class>com.ddd.app.dogcare.controller.DogcareFrontController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>care</servlet-name>
-		<url-pattern>*.care</url-pattern>
+		<url-pattern>*.ca</url-pattern>
 	</servlet-mapping>
 
 	<!-- 관리자 매핑 -->
@@ -53,4 +54,45 @@
 		<servlet-name>admin</servlet-name>
 		<url-pattern>*.ad</url-pattern>
 	</servlet-mapping>
+	
+	<!-- 멍! 카이브 매핑 -->
+	<servlet>
+		<servlet-name>archive</servlet-name>
+		<servlet-class>com.ddd.app.dogarchive.controller.ArchiveFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>archive</servlet-name>
+		<url-pattern>*.ar</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 헤더 매핑 -->
+	<servlet>
+		<servlet-name>header</servlet-name>
+		<servlet-class>com.ddd.app.header.controller.headerController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>header</servlet-name>
+		<url-pattern>*.he</url-pattern>
+	</servlet-mapping>
+
+	<!-- 메인 매핑 -->
+	<servlet>
+		<servlet-name>main</servlet-name>
+		<servlet-class>com.ddd.app.main.controller.mainController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>main</servlet-name>
+		<url-pattern>*.main</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 마이페이지 매핑 -->
+	<servlet>
+		<servlet-name>myPage</servlet-name>
+		<servlet-class>com.ddd.app.mypage.controller.MypageFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>myPage</servlet-name>
+		<url-pattern>*.mp</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

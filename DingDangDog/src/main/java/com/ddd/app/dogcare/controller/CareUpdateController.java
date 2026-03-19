@@ -9,14 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 import com.ddd.app.Execute;
 import com.ddd.app.Result;
 
+
 public class CareUpdateController implements Execute {
 
 	@Override
 	public Result execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		System.out.println("=== CareUpdateController 실행 ===");
+		
+        Result result = new Result();
+        result.setPath("/app/dogcare/dogcare_write.jsp");
+        result.setRedirect(false);
 
-		return null;
-	}
-	
+        return result;
+    }		
 	
 }

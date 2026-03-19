@@ -1,19 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./../../assets/css/doglog/doglog_write.css" />
-  <script defer src="./../../assets/js/doglog/doglog_write.js"></script>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/doglog/doglog_write.css" />
+  <script defer src="${pageContext.request.contextPath}/assets/js/doglog/doglog_write.js"></script>
   <title>멍! 로그 작성</title>
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/header.css" />
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/footer.css" />
 </head>
-
-<body>
-  <!-- header -->
-  <div id="header-container"></div>
+	
+	<body>
+		<!-- 유저 번호 확인 존재시 로그인 헤더 -->
+		<c:choose>
+		  <c:when test="${not empty sessionScope.userNumber}">
+		    <jsp:include page="/app/header_login.jsp" />
+		  </c:when>
+		  <c:otherwise>
+		    <jsp:include page="/app/header_logout.jsp" />
+		  </c:otherwise>
+		</c:choose>
 
   <main class="doglog-write">
     <div class="container">
@@ -21,52 +31,68 @@
         <h2 id="main-title">멍! 로그 작성</h2>
       </div>
 
-      <div class="container-body">
-        <div class="doglog-write-container">
-          <div class="write-title">
-            <input type="text" placeholder="제목을 입력해주세요" />
-          </div>
+      <form action="${pageContext.request.contextPath}/log/writeOk.lo"
+            method="post"
+            enctype="multipart/form-data"
+            id="doglogWriteForm">
 
-          <div class="write-main-container">
-            <!-- 대표 이미지 -->
-            <div class="write-main-img">
-              <div class="img-preview-box">
-                <img id="thumbnailPreview" src="" alt="대표 이미지 미리보기" />
-                <span class="img-placeholder">대표 이미지</span>
+        <input type="hidden" name="logPost" id="logPostHidden">
+
+        <div class="container-body">
+          <div class="doglog-write-container">
+            <div class="write-title">
+              <input type="text"
+                     name="logTitle"
+                     placeholder="제목을 입력해주세요" />
+            </div>
+
+            <div class="write-main-container">
+              <div class="write-main-img">
+                <div class="img-preview-box">
+                  <img id="thumbnailPreview"
+                       src=""
+                       alt="대표 이미지 미리보기"
+                       style="display:none;" />
+                  <span class="img-placeholder">대표 이미지</span>
+                </div>
+              </div>
+
+              <div class="write-main-post">
+                <div class="write-content-editor"
+                     id="writeContentEditor"
+                     contenteditable="true"
+                     data-placeholder="내용을 입력해주세요"></div>
               </div>
             </div>
+          </div>
+        </div>
 
-            <!-- 본문 입력 -->
-            <div class="write-main-post">
-              <div class="write-content-editor" id="writeContentEditor" contenteditable="true"
-                data-placeholder="내용을 입력해주세요"></div>
+        <div class="container-footer">
+          <div class="footer-btn-wrap">
+            <input type="file"
+                   id="imageUpload"
+                   name="logImages"
+                   accept="image/*"
+                   multiple
+                   hidden />
+
+            <div class="footer-left">
+              <label for="imageUpload" class="btn btn-upload">이미지 첨부</label>
+            </div>
+
+            <div class="footer-right">
+              <button type="submit" class="btn btn-save">저장하기</button>
+              <a href="${pageContext.request.contextPath}/log/list.lo" class="btn btn-cancel">취소</a>
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="container-footer">
-        <div class="footer-btn-wrap">
-          <input type="file" id="imageUpload" accept="image/*" multiple hidden />
-
-          <div class="footer-left">
-            <label for="imageUpload" class="btn btn-upload">이미지 첨부</label>
-          </div>
-
-          <div class="footer-right">
-            <a href="" class="btn btn-save">저장하기</a>
-            <a href="" class="btn btn-cancel">취소</a>
-          </div>
-        </div>
-      </div>
+      </form>
     </div>
   </main>
-  <!-- footer -->
+
   <div id="footer-container"></div>
-  <!-- js -->
-  <script src="/assets/js/header-footer.js"></script>
 
-
+  <jsp:include page="/app/footer.jsp" />
 </body>
 
 </html>
