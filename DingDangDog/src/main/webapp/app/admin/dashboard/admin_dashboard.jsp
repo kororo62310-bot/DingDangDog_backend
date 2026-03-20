@@ -45,7 +45,7 @@
 									<div class="dashboard-list-row userlist">
 										<div class="user-number">${user.userNumber}</div>
 										<div class="user-id">${user.userId}</div>
-										<div class="user-name">${user.shelterName}</div>
+										<div class="user-shelter-name">${user.shelterName}</div>
 										<c:if test="${user.shelterCertification == 'N'}">
 											<div class="user-confirm-check confirm-wait">인증대기</div>
 										</c:if>

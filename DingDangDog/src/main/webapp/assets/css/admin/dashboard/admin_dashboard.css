@@ -167,7 +167,7 @@
   flex: 0.8;
 }
 
-.response-wait {
+.response-wait, .confirm-wait {
   color: red;
   font-weight: bold;
 }

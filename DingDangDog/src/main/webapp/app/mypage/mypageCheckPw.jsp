@@ -64,14 +64,14 @@
 						</div>
 						<div class="panel-body">
 							<div class="edit-form">
-
+								<p>현재 로그인 번호: <c:out value="${sessionScope.userNumber}" /></p>
 								<div class="password-check-modal-box">
 
 									<div class="password-check-modal-body">
 										<p class="password-check-title">비밀번호 입력</p>
 
 										<div class="password-check-input-row">
-											<form
+											<form method="post"
 												action="${pageContext.request.contextPath}/mypage/checkPwOk.mp">
 												<input type="password" id="password-check-input"
 													name="checkPassword" class="password-check-input"

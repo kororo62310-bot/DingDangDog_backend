@@ -103,6 +103,8 @@
 											<div class="edit-control">
 												<input type="text" id="nickname" class="edit-input"
 													name="userNickname" value="${user.userNickname}">
+												<p id="nickname-guide" class="guide-text">특수문자 제외 20자
+													이내로 입력해주세요.</p>
 												<p id="nickname-success" class="guide-text info-text">사용
 													가능한 닉네임 입니다.</p>
 												<p id="nickname-error" class="guide-text error-text">사용

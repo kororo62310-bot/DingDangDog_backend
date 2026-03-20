@@ -108,6 +108,7 @@
 		<mapper resource="com/ddd/mapper/mainMapper.xml" />
 		<mapper resource="com/ddd/mapper/ReportMapper.xml" />
 		<mapper resource="com/ddd/mapper/CareMapper.xml" />
+		<mapper resource="com/ddd/mapper/AdminUserMapper.xml" />
 	</mappers>
 	
 

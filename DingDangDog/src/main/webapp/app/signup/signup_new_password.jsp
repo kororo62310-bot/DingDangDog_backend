@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%><%@ taglib prefix="c"
+	uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,27 +9,38 @@
 <title>비밀번호 재설정</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/signup/signup_new_password.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/header.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/assets/css/footer.css" />
+<script defer
+	src="${pageContext.request.contextPath}/assets/js/signup/signup_find_password.js"></script>
 </head>
 <body>
-	<header></header>
+	<c:choose>
+		<c:when test="${not empty sessionScope.userNumber}">
+			<jsp:include page="/app/header_login.jsp" />
+		</c:when>
+		<c:otherwise>
+			<jsp:include page="/app/header_logout.jsp" />
+		</c:otherwise>
+	</c:choose>
 
 	<main>
 		<section>
-			<h1>
-				-<%=request.getAttribute("key")%></h1>
 			<div class="main-title">Ding Dong Dong!</div>
 			<div class="main-container">
 				<div class="main-container-title">비밀번호 재설정</div>
 				<div class="main-form-container">
-					<form action="${pageContext.request.contextPath}/user/resetPwOk.us">
+					<form action="${pageContext.request.contextPath}/user/resetPwOk.us"
+						method="post">
 						<div class="main-container-password">
 							<div class="main-container-newpassword">
 								<div class="main-input-newpassword">
 									<div class="main-newpassword-writing">
 										<label for="user-password">새 비밀번호</label>
 									</div>
-									<input type="password" id="user-password" name="user-password"><span
-										class="eyes">눈</span>
+									<input type="password" id="user-password" name="userPassword">
 								</div>
 								<div class=" main-newpassword-message">
 									<p>영문,숫자,특수 문자 포함 8자리이상</p>
@@ -40,10 +52,10 @@
 										<label for="user-checkpassword">비밀번호 재입력</label>
 									</div>
 									<input type="password" id="user-checkpassword"
-										name="user-checkpassword"> <span>눈</span>
+										name="user-checkpassword">
 								</div>
 								<div class="main-checkpassword-message">
-									<p>비밀번호가 일치하지 않습니다</p>
+									<p></p>
 								</div>
 							</div>
 						</div>
@@ -55,10 +67,9 @@
 			</div>
 		</section>
 
-
-
 	</main>
 
-	<footer></footer>
+
+	<%@ include file="/app/footer.jsp"%>
 </body>
 </html>

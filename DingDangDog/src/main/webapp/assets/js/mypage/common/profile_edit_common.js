@@ -62,10 +62,20 @@ document.addEventListener("DOMContentLoaded", function() {
 	nicknameCheckBtn.addEventListener("click", function() {
 		const userNickname = nicknameInput.value.trim();
 
+		const nicknameRegex = /^[a-zA-Z0-9가-힣]{1,20}$/;
+
 		if (!userNickname) {
 			nicknameError.textContent = "닉네임을 입력해주세요.";
 			nicknameError.style.display = "block";
 			nicknameSuccess.style.display = "none";
+			return;
+		}
+
+		if (!nicknameRegex.test(userNickname)) {
+			nicknameError.textContent = "특수문자 제외 20자 이내로 입력해주세요.";
+			nicknameError.style.display = "block";
+			nicknameSuccess.style.display = "none";
+			isNicknameChecked = false;
 			return;
 		}
 

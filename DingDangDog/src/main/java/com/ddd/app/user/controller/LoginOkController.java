@@ -43,7 +43,7 @@ public class LoginOkController implements Execute {
 		System.out.println(loginUser);
 
 		if (loginUser != null) {
-			path = request.getContextPath() + "/index.jsp";
+			path = request.getContextPath() + "/mainpage/Main.main";
 
 			session.setAttribute("userNumber", loginUser.getUserNumber());
 			session.setAttribute("userNickname", loginUser.getUserNickname());

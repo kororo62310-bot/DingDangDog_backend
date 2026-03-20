@@ -40,9 +40,9 @@ public class CheckPasswordController implements Execute {
 		int checkResult = mypageDAO.checkPassword(userDTO);
 
 		if (checkResult == 1) {
-			if (loginUserType.equals("C")) {
+			if ("C".equals(loginUserType)) {
 				path = request.getContextPath() + "/mypage/profileEditC.mp";
-			} else if (loginUserType.equals("S")) {
+			} else if ("S".equals(loginUserType)) {
 				path = request.getContextPath() + "/mypage/profileEditS.mp";
 			}
 

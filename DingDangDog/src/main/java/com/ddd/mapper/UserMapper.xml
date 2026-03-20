@@ -7,10 +7,10 @@
 		<selectKey keyProperty="userNumber" resultType="int"
 			order="BEFORE">
 			<choose>
-				<when test="userType == 'C'">
+				<when test='userType == "C"'>
 					SELECT seq_common_user.NEXTVAL FROM DUAL
 				</when>
-				<when test="userType == 'S'">
+				<when test='userType == "S"'>
 					SELECT seq_shelter_user.NEXTVAL FROM DUAL
 				</when>
 			</choose>
@@ -29,19 +29,29 @@
 		)
 	</insert>
 	<!-- 일반회원 회원가입 추가정보 -->
-	<insert id="insertCommonUser">
-		INSERT INTO ddd_user_common (user_number) VALUES
+	<insert id="insertCommonUser" parameterType="UserDTO">
+		INSERT INTO
+		ddd_user_common (user_number) VALUES
 		(#{userNumber})
 	</insert>
 	<!-- 보호소회원 회원가입 추가정보 -->
 	<insert id="insertUserShelter" parameterType="UserDTO">
 		INSERT INTO
-		ddd_user_shelter (user_number, shelter_name,
+		ddd_user_shelter (
+		user_number,
+		shelter_name,
 		shelter_business_number,
-		shelter_address)
-		VALUES (#{userNumber}, #{shelterName},
+		shelter_zipcode,
+		shelter_address,
+		shelter_address_detail
+		) VALUES (
+		#{userNumber},
+		#{shelterName},
 		#{shelterBusinessNumber},
-		#{shelterAddress})
+		#{shelterZipcode},
+		#{shelterAddress},
+		#{shelterAddressDetail}
+		)
 	</insert>
 
 	<!-- 로그인 -->
@@ -91,26 +101,12 @@
 	</select>
 
 	<!-- 비밀번호 변경 -->
-	<update id="resetPw">
+	<update id="resetPw" parameterType="UserDTO">
 		UPDATE ddd_user
-		SET USER_PASSWORD = #{userPassword}
-		WHERE USER_NUMBER = #{userNumber};
+		SET
+		USER_PASSWORD = #{userPassword}
+		WHERE USER_NUMBER = #{userNumber}
 	</update>
-
-
-	<!-- 마이페이지 내정보조회/변경 -->
-	<!-- 조회 -->
-	<!-- <select id="selectMyPageInfo" resultType="UserDTO"> SELECT user_id, 
-		user_name, user_birth, user_nickname, user_email, user_phone, user_gender 
-		FROM ddd_user WHERE user_number = #{userNumber} </select> 변경 <update id="updateMyPageInfo"> 
-		UPDATE ddd_user SET user_nickname = #{userNickname} <if test="userPassword 
-		!= null and userPassword != ''"> , user_password = #{userPassword} </if> 
-		WHERE user_number = #{userNumber} AND user_password = #{currentPassword} 
-		</update> 보호소용 파일 추가 쿼리 필요 탈퇴 비밀번호 확인 <select id="checkPassword" resultType="int"> 
-		SELECT COUNT(user_number) FROM ddd_user WHERE user_number = #{userNumber} 
-		AND user_password = #{userPassword} </select> 탈퇴상태로 변경 <update id="updateToWithdraw"> 
-		UPDATE ddd_user SET user_status = 'withdraw' WHERE user_number = #{userNumber} 
-		</update> -->
 
 
 </mapper>

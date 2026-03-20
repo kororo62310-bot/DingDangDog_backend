@@ -28,10 +28,10 @@
 	<main>
 		<div class="main-common-title">일반회원</div>
 		<form
-			action="${pageContext.request.contextPath }/user/signUpCommonOk.me"
+			action="${pageContext.request.contextPath }/user/signUpCommonOk.us"
 			method="post" data-context-path="${pageContext.request.contextPath}">
 			<div class="main-common-container">
-
+				<input type="hidden" name="userType" value="C">
 				<div class="main-form-common-id">
 					<div class="main-container-common-id">
 						<div class="main-input-common-id">
@@ -70,12 +70,11 @@
 							<div class="main-input-checkpw-common-writing">
 								<label for="user-pw-common-check">비밀번호 재입력</label>
 							</div>
-							<input type="password" id="user-pw-common-check"
-								name="userPasswordCheck" required>
+							<input type="password" id="user-pw-common-check" required>
 						</div>
 					</div>
 					<div class="main-form-checkpw-common-message">
-						<p>비밀번호가 일치하지 않습니다</p>
+						<p></p>
 					</div>
 				</div>
 
@@ -108,27 +107,27 @@
 					<div class="user-gender-common-container">
 						<div class="user-gender-container-common-male">
 							<span class="user-gender-common-male">남</span> <input
-								type="radio" id="user-common-male" name="userGender" value="남"
+								type="radio" id="user-common-male" name="userGender" value="M"
 								checked="checked">
 						</div>
 						<div class="user-gender-container-common-female">
 							<label for="user-common-female">여</label> <input type="radio"
-								id="user-common-female" name="userGender" value="여">
+								id="user-common-female" name="userGender" value="F">
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="main-form-common-birth">
 					<div class="main-form-common-container">
 						<div class="main-birth-common-writing">
 							<label for="user-common-birth">생년월일</label>
 						</div>
 						<input type="text" id="user-common-birth" name="userBirth"
-							placeholder="생년월일 8자를 입력해주세요 - 예) 20000101" maxlength="10"
-							required> <input type="date">
+							placeholder="생년월일 8자를 입력해주세요 예) 20000101" maxlength="10" required>
+
 					</div>
-					<!-- <div class="main-birth-common-message">ex&#41;2000-00-00</div> -->
 				</div>
+
 
 				<div class="main-form-common-phone">
 					<div class="main-container-common-phone">
@@ -142,7 +141,7 @@
 						</div>
 					</div>
 					<div class="main-phone-common-message">
-						<p>인증번호 발송에 실패했습니다. 다시 확인해주세요.</p>
+						<p></p>
 					</div>
 				</div>
 
@@ -152,15 +151,14 @@
 							<div class="main-verification-common-writing">
 								<label for="user-common-verification">인증번호</label>
 							</div>
-							<input type="text" id="user-common-verification"
-								name="userVerification" required>
+							<input type="text" id="user-common-verification">
 						</div>
 						<div class="verification-common-btn">
 							<button type="button">인증번호 확인</button>
 						</div>
 					</div>
 					<div class="main-verification-common-message">
-						<p>인증번호가 일치하지 않습니다</p>
+						<p></p>
 					</div>
 				</div>
 

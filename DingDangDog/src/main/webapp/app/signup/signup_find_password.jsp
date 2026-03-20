@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,7 +15,14 @@
 	href="${pageContext.request.contextPath}/assets/css/footer.css" />
 </head>
 <body>
-	<%@ include file="/app/header_logout.jsp"%>
+	<c:choose>
+		<c:when test="${not empty sessionScope.userNumber}">
+			<jsp:include page="/app/header_login.jsp" />
+		</c:when>
+		<c:otherwise>
+			<jsp:include page="/app/header_logout.jsp" />
+		</c:otherwise>
+	</c:choose>
 
 	<main>
 		<section>
@@ -36,7 +43,9 @@
 								<input type="text" id="user-id" name="userId">
 							</div>
 							<div class="password-main-id-message">
-								<p>존재하지 않는 아이디입니다.</p>
+								<c:if test="${param.find == 'fail'}">
+									<span>일치하는 회원 정보가 없습니다</span>
+								</c:if>
 							</div>
 						</div>
 						<div class="password-main-phoneNumber">

@@ -80,13 +80,12 @@ public class UserFrontController extends HttpServlet {
 			break;
 		case "/user/resetPw.us":
 			System.out.println("비밀번호 재설정 페이지 이동 요청");
-			result = new Result();
-			result.setPath("/app/signup/singup_new_password.jsp");
-			result.setRedirect(false);
+			result = new ResetPwController().execute(request, response);
 			System.out.println("비밀번호 재설정 페이지 이동 완료");
 			break;
 		case "/user/resetPwOk.us":
 			System.out.println("비밀번호 재설정 처리 요청");
+			result = new ResetPwOkController().execute(request, response);
 			System.out.println("비밀번호 재설정 처리 완료");
 			break;
 		case "/user/signupChoice.us":
@@ -103,12 +102,22 @@ public class UserFrontController extends HttpServlet {
 			result.setRedirect(false);
 			System.out.println("일반 회원가입 페이지 이동");
 			break;
+		case "/user/signUpCommonOk.us":
+			System.out.println("일반 회원가입 처리 요청");
+			result = new SignUpCommonOkController().execute(request, response);
+			System.out.println("일반 회원가입 처리 완료");
+			break;
 		case "/user/signupShelter.us":
 			System.out.println("보호소 회원가입 페이지 요청");
 			result = new Result();
-			result.setPath("/app/signup_common.jsp");
+			result.setPath("/app/signup/signup_shelter.jsp");
 			result.setRedirect(false);
 			System.out.println("보호소 회원가입 페이지 이동");
+			break;
+		case "/user/signUpShelterOk.us":
+			System.out.println("일반 회원가입 처리 요청");
+			result = new SignUpShelterOkController().execute(request, response);
+			System.out.println("일반 회원가입 처리 완료");
 			break;
 		case "/user/checkIdOk.us":
 			System.out.println("아이디 중복확인 요청");

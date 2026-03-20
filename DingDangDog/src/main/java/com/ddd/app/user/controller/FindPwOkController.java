@@ -28,16 +28,20 @@ public class FindPwOkController implements Execute {
 		userDTO.setUserId(userId);
 		userDTO.setUserPhone(userPhone);
 
-		int userNumber = userDAO.findPw(userDTO);
+		Integer userNumber = userDAO.findPw(userDTO);
 
 		System.out.println("userNumber " + userNumber);
 
-		request.setAttribute("userNumber", userNumber);
-
+		if (userNumber != null) {
+			request.getSession().setAttribute("resetUserNumber", userNumber);
+			result.setPath(request.getContextPath() + "/user/resetPw.us");
+		} else {
+			result.setPath(request.getContextPath() + "/user/findPw.us?find=fail");
+		}
 		result.setRedirect(true);
-		result.setPath(request.getContextPath() + "/user/resetPw.us");
 
 		return result;
+
 	}
 
 }

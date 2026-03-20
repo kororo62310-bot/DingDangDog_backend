@@ -35,6 +35,13 @@ public class UserDTO {
 	private String userPhone;
 	private String userEmail;
 	private String userStatus;
+	private int commonReportCount;
+	private String shelterName;
+	private String shelterBusinessNumber;
+	private String shelterZipcode;
+	private String shelterAddress;
+	private String shelterAddressDetail;
+	private String shelterCertification;
 
 	public int getUserNumber() {
 		return userNumber;
@@ -124,12 +131,71 @@ public class UserDTO {
 		this.userStatus = userStatus;
 	}
 
+	public int getCommonReportCount() {
+		return commonReportCount;
+	}
+
+	public void setCommonReportCount(int commonReportCount) {
+		this.commonReportCount = commonReportCount;
+	}
+
+	public String getShelterName() {
+		return shelterName;
+	}
+
+	public void setShelterName(String shelterName) {
+		this.shelterName = shelterName;
+	}
+
+	public String getShelterBusinessNumber() {
+		return shelterBusinessNumber;
+	}
+
+	public void setShelterBusinessNumber(String shelterBusinessNumber) {
+		this.shelterBusinessNumber = shelterBusinessNumber;
+	}
+
+	public String getShelterZipcode() {
+		return shelterZipcode;
+	}
+
+	public void setShelterZipcode(String shelterZipcode) {
+		this.shelterZipcode = shelterZipcode;
+	}
+
+	public String getShelterAddress() {
+		return shelterAddress;
+	}
+
+	public void setShelterAddress(String shelterAddress) {
+		this.shelterAddress = shelterAddress;
+	}
+
+	public String getShelterAddressDetail() {
+		return shelterAddressDetail;
+	}
+
+	public void setShelterAddressDetail(String shelterAddressDetail) {
+		this.shelterAddressDetail = shelterAddressDetail;
+	}
+
+	public String getShelterCertification() {
+		return shelterCertification;
+	}
+
+	public void setShelterCertification(String shelterCertification) {
+		this.shelterCertification = shelterCertification;
+	}
+
 	@Override
 	public String toString() {
 		return "UserDTO [userNumber=" + userNumber + ", userType=" + userType + ", userId=" + userId + ", userPassword="
 				+ userPassword + ", userName=" + userName + ", userNickname=" + userNickname + ", userGender="
 				+ userGender + ", userBirth=" + userBirth + ", userPhone=" + userPhone + ", userEmail=" + userEmail
-				+ ", userStatus=" + userStatus + "]";
+				+ ", userStatus=" + userStatus + ", commonReportCount=" + commonReportCount + ", shelterName="
+				+ shelterName + ", shelterBusinessNumber=" + shelterBusinessNumber + ", shelterZipcode="
+				+ shelterZipcode + ", shelterAddress=" + shelterAddress + ", shelterAddressDetail="
+				+ shelterAddressDetail + ", shelterCertification=" + shelterCertification + "]";
 	}
 
 }

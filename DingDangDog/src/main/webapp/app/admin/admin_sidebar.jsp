@@ -7,8 +7,9 @@
 			Dong DOG !</a>
 	</div>
 	<div class="admin-info-section">
-		<span class="admin-login-info">admin01</span>
-		<button class="admin-logout-btn">로그아웃</button>
+		<span class="admin-login-info">${sessionScope.adminId}</span>
+		<button class="admin-logout-btn"
+			onclick="location.href='${pageContext.request.contextPath}/admin/adminLogout.ad'">로그아웃</button>
 	</div>
 	<nav class="admin-nav-menu">
 		<ul>

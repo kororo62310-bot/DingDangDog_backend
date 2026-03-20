@@ -25,7 +25,37 @@ document.addEventListener("DOMContentLoaded", function() {
 	let isNickChecked = false;
 	let isEmailChecked = false;
 
-	/*----------------------아이디 중복확인----------------------*/
+
+
+	// ====== 카카오 우편번호 ======
+	const searchBtn = document.getElementById("searchPostcodeBtn");
+	if (searchBtn) {
+		searchBtn.addEventListener("click", function() {
+			new daum.Postcode({
+				oncomplete: function(data) {
+					document.getElementById("postcode").value = data.zonecode || "";
+
+					var isRoad = data.userSelectedType === "R";
+					var base = isRoad ? (data.roadAddress || "") : (data.jibunAddress || "");
+					var extra = "";
+
+					if (isRoad) {
+						if (data.bname && /[동|로|가]$/.test(data.bname)) extra += data.bname;
+						if (data.buildingName && data.apartment === "Y") {
+							extra += (extra ? ", " : "") + data.buildingName;
+						}
+					}
+
+					var main = base + (extra ? " (" + extra + ")" : "");
+					document.getElementById("mainAddress").value = main;
+
+					document.getElementById("detailAddress").focus();
+				}
+			}).open({ popupTitle: "우편번호 검색" });
+		});
+	}
+
+	//----------------------아이디 중복확인----------------------
 	idInput.addEventListener("input", function() {
 		isIdChecked = false;
 		idMsg.textContent = "중복 확인을 해주세요.";
@@ -69,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			});
 	});
 
-	/*----------------------비밀번호 확인----------------------*/
+	//----------------------비밀번호 확인----------------------
 	const pwRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
 	function checkPassword() {
@@ -98,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	pwInput.addEventListener("input", checkPassword);
 	pwCheckInput.addEventListener("input", checkPassword);
 
-	/*----------------------닉네임 중복확인----------------------*/
+	//----------------------닉네임 중복확인----------------------
 	const nickRegex = /^[a-zA-Z0-9가-힣]{1,20}$/;
 	nickInput.addEventListener("input", function() {
 		isNickChecked = false;
@@ -151,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-	/*----------------------이메일 중복확인----------------------*/
+	//----------------------이메일 중복확인----------------------
 	emailInput.addEventListener("input", function() {
 		isEmailChecked = false;
 		emailMsg.textContent = "중복 확인을 해주세요";
@@ -243,7 +273,6 @@ document.addEventListener("DOMContentLoaded", function() {
 			}
 		}
 
-		// 3. 하이픈(-) 시각적 포맷팅
 		if (val.length <= 4) {
 			result = val;
 		} else if (val.length <= 6) {
@@ -293,8 +322,38 @@ document.addEventListener("DOMContentLoaded", function() {
 			return;
 		}
 
+		const shelterName = document.getElementById("sheltername");
+		const businessNum = document.getElementById("user-shelter-business");
+		const postcode = document.getElementById("postcode");
+		const mainAddr = document.getElementById("mainAddress");
+
+		if (shelterName) {
+			if (!shelterName.value.trim()) {
+				alert("보호소명을 입력해주세요.");
+				shelterName.focus();
+				e.preventDefault();
+				return;
+			}
+
+			if (businessNum && !businessNum.value.trim()) {
+				alert("사업자 등록번호를 입력해주세요.");
+				businessNum.focus();
+				e.preventDefault();
+				return;
+			}
+
+			if (postcode && (!postcode.value || !mainAddr.value)) {
+				alert("우편번호 검색을 통해 주소를 입력해주세요.");
+				document.getElementById("searchPostcodeBtn").focus();
+				e.preventDefault();
+				return;
+			}
+		}
+
 		alert("회원가입을 완료했습니다!");
 	});
+
+
 
 
 })

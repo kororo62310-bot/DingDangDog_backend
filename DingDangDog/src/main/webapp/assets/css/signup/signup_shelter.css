@@ -1,581 +1,611 @@
 * {
-  margin: 0;
-  padding: 0;
-  /* border: none; */
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	/* border: none; */
+	box-sizing: border-box;
 }
 
 header {
-  width: 100%;
-  height: 110px;
-  border: 1px solid black;;
+	width: 100%;
+	height: 110px;
+	border: 1px solid black;;
 }
 
 footer {
-  width:100%;
-  height: 200px;
-  border: 1px solid black;
+	width: 100%;
+	height: 200px;
+	border: 1px solid black;
 }
 
 main {
-  width:100%;
-  height: 1500px;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  
+	width: 100%;
+	height: 1600px;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .main-shelter-title {
-    margin-top:33px;
-    height:100px;
-    width: 300px;
-    border:1px solid black;
-    text-align: center;
-    line-height: 100px;
-    font-weight: bold;
-    border-radius: 10px;
-    background-color: #F47C2A;
-    color: white;
-    font-size: 35px;
-
-
+	margin-top: 33px;
+	height: 100px;
+	width: 300px;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 100px;
+	font-weight: bold;
+	border-radius: 10px;
+	background-color: #F47C2A;
+	color: white;
+	font-size: 35px;
 }
 
-.main-shelter-container{
-    margin:33px 20px 60px;
-    height:1200px;
-    width:900px;
-    border: 1px solid black;
-    border-radius: 10px;
-   
+.main-shelter-container {
+	margin: 33px 20px 60px;
+	height: 1350px;
+	width: 900px;
+	border: 1px solid black;
+	border-radius: 10px;
 }
 
 .main-form-shelter-id {
-
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
-    margin-top: 33px;
-   
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
+	margin-top: 33px;
 }
 
 .main-container-shelter-id {
-  display: flex;
-  align-items: center;
-  justify-content: center;
- 
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-.main-input-shelter-id{
-  display: flex;
+.main-input-shelter-id {
+	display: flex;
 }
 
 .main-input-id-shelter-writing {
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
-#user-shelter-id  {
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
+#user-shelter-id {
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
-.id-shelter-btn button{
-  width: 150px;
-  height: 60px;
-  font-size: 20px;
-  margin-left:10px;
-  border-radius: 10px;
-  background-color: #F47C2A;
-  color: white;
-  font-weight: bold;
+.id-shelter-btn button {
+	width: 150px;
+	height: 60px;
+	font-size: 20px;
+	margin-left: 10px;
+	border-radius: 10px;
+	background-color: #F47C2A;
+	color: white;
+	font-weight: bold;
 }
 
 .main-form-id-shelter-message {
-  display:none;
-  color: red;
-  font-weight: bold;
-  margin-left:73px;
+	display: none;
+	color: red;
+	font-weight: bold;
+	margin-left: 73px;
 }
 
-
-
 .main-form-shelter-pw {
-
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
-
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
 }
 
 .main-input-shelter-pw {
-    display:flex;
-    margin-left: 73px;
+	display: flex;
+	margin-left: 73px;
 }
 
 .main-input-pw-shelter-writing {
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
-
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
 #user-shelter-pw {
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
-
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
 .main-form-pw-shelter-message {
-  color:gray;
-  font-weight: bold;
-  display:flex;
-  justify-content: center;
+	color: gray;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
 }
 
 .main-form-shelter-checkpw {
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
 }
 
 .main-input-shelter-checkpw {
-  display: flex;
-  margin-left: 73px;
-
+	display: flex;
+	margin-left: 73px;
 }
-
-
 
 .main-input-checkpw-shelter-writing {
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
-#user-pw-shelter-check{
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
+
+#user-pw-shelter-check {
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
 .main-form-checkpw-shelter-message {
-  display:none;
-  color: red;
-  font-weight: bold;
-  text-align: center;
+	display: none;
+	color: red;
+	font-weight: bold;
+	text-align: center;
 }
 
-
-
 #sheltername {
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
-  
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
 .main-form-sheltername {
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
-    display: flex;
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
+	display: flex;
 }
 
 .main-input-sheltername {
-  margin-left: 73px;
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
+	margin-left: 73px;
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
 .main-form-shelter-nickname {
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
-
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
 }
-.main-container-shelter-nickname {
-  display:flex;
-  margin-left: 73px;
 
+.main-container-shelter-nickname {
+	display: flex;
+	margin-left: 73px;
 }
 
 .main-input-shelter-nickname {
-  display: flex;
+	display: flex;
 }
 
 .main-input-nickname-shelter-writing {
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
-.nickname-shelter-btn button{
-  width: 150px;
-  height: 60px;
-  font-size: 20px;
-  margin-left:10px;
-  border-radius: 10px;
-  background-color: #F47C2A;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.nickname-shelter-btn button {
+	width: 150px;
+	height: 60px;
+	font-size: 20px;
+	margin-left: 10px;
+	border-radius: 10px;
+	background-color: #F47C2A;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
 }
 
 .main-form-nickname-shelter-message {
-  display:none;
-  color: red;
-  font-weight: bold;
-  text-align: center;
+	display: none;
+	color: red;
+	font-weight: bold;
+	text-align: center;
 }
 
 .main-form-shelter-name {
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
-    display: flex;
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
+	display: flex;
 }
 
 .main-container-shelter-name {
-  display: flex;
-  margin-left: 73px;
-  
+	display: flex;
+	margin-left: 73px;
 }
+
 .main-name-shelter-writing {
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
 #user-shelter-name {
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
-
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
 .user-gender-shelter-container {
-  display: flex;
-  align-items: center;
-  gap:20px;
-  font-size: 20px;
-  margin-left: 10px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	font-size: 20px;
+	margin-left: 10px;
 }
 
 .user-gender-container-shelter-male,
-.user-gender-container-shelter-female {
-  display: flex;
-  align-items: center;  
-  gap: 5px;
+	.user-gender-container-shelter-female {
+	display: flex;
+	align-items: center;
+	gap: 5px;
 }
-
 
 #user-shelter-male {
-  height:20px;
-  width: 20px;
-  cursor: pointer;
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
 }
 
-#user-shelter-female{
-  height:20px;
-  width: 20px;
-  cursor: pointer;
+#user-shelter-female {
+	height: 20px;
+	width: 20px;
+	cursor: pointer;
 }
 
 #user-shelter-nickname {
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
 .main-form-shelter-birth {
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
 }
 
 .main-form-shelter-container {
-  display: flex;
-  margin-left: 73px;
+	display: flex;
+	margin-left: 73px;
 }
 
-.main-birth-shelter-writing{
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
-
+.main-birth-shelter-writing {
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
 #user-shelter-birth {
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
 .main-birth-shelter-message {
-  text-align: center;
-  color: gray;
-  font-weight: bold;
+	text-align: center;
+	color: gray;
+	font-weight: bold;
 }
 
 .main-form-shelter-address {
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
-    display: flex;
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
+	display: flex;
 }
 
-
-
-
 .main-container-shelter-address {
-  display: flex;
-  margin-left:73px;
-
+	display: flex;
+	margin-left: 73px;
 }
 
 .main-address-shelter-writing {
-  
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
 #user-shelter-address {
-
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
-.address-shelter-btn button{
-  width: 150px;
-  height: 60px;
-  font-size: 20px;
-  margin-left:10px;
-  border-radius: 10px;
-  background-color: #F47C2A;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.address-shelter-btn button {
+	width: 150px;
+	height: 60px;
+	font-size: 20px;
+	margin-left: 10px;
+	border-radius: 10px;
+	background-color: #F47C2A;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
 }
 
-.main-form-shelter-business{
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
-    
+.main-form-shelter-business {
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
 }
 
 .main-container-shelter-business {
-  margin-left:73px;
+	margin-left: 73px;
 }
 
 .main-business-shelter-writing {
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
-
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
 .main-input-shelter-business {
-  display: flex;
-
+	display: flex;
 }
 
-#user-shelter-business{
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
-
+#user-shelter-business {
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
 .user-business-shelter-message {
-  display:none;
-  text-align: center;
-  color: red;
-  font-weight: bold;
+	display: none;
+	text-align: center;
+	color: red;
+	font-weight: bold;
 }
 
-.main-form-shelter-phone{
-    height: 90px;
-    width: 900px;
-    /* border: 1px solid black; */
-    
+.main-form-shelter-phone {
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
 }
 
 .main-container-shelter-phone {
-  display:flex;
-  margin-left: 73px;
-
+	display: flex;
+	margin-left: 73px;
 }
 
-.main-phone-shelter-writing{
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
+.main-phone-shelter-writing {
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
 #user-shelter-phone {
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
-
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
-.phone-shelter-btn button{
-  width: 150px;
-  height: 60px;
-  font-size: 20px;
-  margin-left:10px;
-  border-radius: 10px;
-  background-color: #F47C2A;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.phone-shelter-btn button {
+	width: 150px;
+	height: 60px;
+	font-size: 20px;
+	margin-left: 10px;
+	border-radius: 10px;
+	background-color: #F47C2A;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
 }
 
-.main-phone-shelter-message{
-  text-align: center;
-  color: red;
-  font-weight: bold;
-  display: none;
+.main-phone-shelter-message {
+	text-align: center;
+	color: red;
+	font-weight: bold;
+	display: none;
 }
 
-.main-form-shelter-verification{
-  height: 90px;
-  width: 900px;
-  /* border: 1px solid black; */
-
+.main-form-shelter-verification {
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
 }
 
-.main-container-shelter-verification{
-  display: flex;
-  margin-left: 73px;
+.main-container-shelter-verification {
+	display: flex;
+	margin-left: 73px;
 }
 
 .main-input-shelter-verification {
-  display: flex;
+	display: flex;
 }
 
-.main-verification-shelter-writing{
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
-}
-#user-shelter-verification{
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
+.main-verification-shelter-writing {
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
-.main-verification-shelter-message{
-  text-align: center;
-  color: red;
-  font-weight: bold;
-  display: none;
+#user-shelter-verification {
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
+}
+
+.main-verification-shelter-message {
+	text-align: center;
+	color: red;
+	font-weight: bold;
+	display: none;
 }
 
 .verification-shelter-btn button {
-  width: 150px;
-  height: 60px;
-  font-size: 20px;
-  margin-left:10px;
-  border-radius: 10px;
-  background-color: #F47C2A;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+	width: 150px;
+	height: 60px;
+	font-size: 20px;
+	margin-left: 10px;
+	border-radius: 10px;
+	background-color: #F47C2A;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
 }
 
-.main-form-shelter-emailAddress{
-  height: 90px;
-  width: 900px;
-  /* border: 1px solid black; */
+.main-form-shelter-emailAddress {
+	height: 90px;
+	width: 900px;
+	/* border: 1px solid black; */
 }
-.main-container-shelter-emailAddress{
-  display: flex;
-  margin-left: 73px;
+
+.main-container-shelter-emailAddress {
+	display: flex;
+	margin-left: 73px;
 }
 
 .main-emailAddress-shelter-writing {
-  width: 190px;
-  height: 60px;
-  border: 1px solid black;
-  font-size : 20px;
-  text-align: center;
-  line-height: 60px;
-  font-weight: bold;
+	width: 190px;
+	height: 60px;
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
 }
 
 #email-shelter-user {
-  width: 400px;
-  height: 60px;
-  font-size: 20px;
+	width: 400px;
+	height: 60px;
+	font-size: 20px;
 }
 
 .signup-shelter-btn {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
-.signup-shelter-btn button{
-  width: 200px;
-  height: 80px;
-  font-size: 20px;
-  margin-left:10px;
-  border-radius: 10px;
-  background-color: #F47C2A;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+
+.signup-shelter-btn button {
+	width: 200px;
+	height: 80px;
+	font-size: 20px;
+	margin-left: 10px;
+	border-radius: 10px;
+	background-color: #F47C2A;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+/* 주소 섹션 전체 컨테이너 */
+.main-form-shelter-address {
+	height: auto; /* 내용이 많으므로 높이 자동 조절 */
+	min-height: 200px;
+	width: 900px;
+	display: flex; /* 라벨과 인풋 영역을 가로 배치 */
+	margin-left: 73px;
+	margin-bottom: 20px;
+}
+
+/* 좌측 주소 라벨 스타일 (다른 라벨들과 통일) */
+.main-address-shelter-writing {
+	width: 190px;
+	height: 60px; /* 높이는 첫 줄에 맞춤 */
+	border: 1px solid black;
+	font-size: 20px;
+	text-align: center;
+	line-height: 60px;
+	font-weight: bold;
+	background-color: white;
+}
+
+/* 우측 입력창들을 담는 컨테이너 */
+.main-address-shelter-inputs {
+	display: flex;
+	flex-direction: column; /* 세로로 쌓기 */
+	gap: 10px;
+	margin-left: 0px; /* 라벨 바로 옆에 붙음 */
+}
+
+/* 첫 번째 줄 (우편번호 + 버튼) */
+.address-row-first {
+	display: flex;
+	gap: 10px;
+}
+
+#postcode {
+	width: 240px; /* 우편번호는 짧게 */
+	height: 60px;
+	font-size: 20px;
+	padding-left: 10px;
+}
+
+#searchPostcodeBtn {
+	width: 150px;
+	height: 60px;
+	font-size: 18px;
+	border-radius: 10px;
+	background-color: #F47C2A;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	border: none;
+}
+
+/* 도로명주소 및 상세주소 입력창 (꽉 차게) */
+.address-row input {
+	width: 400px; /* 기존 인풋창 너비 400px과 통일 */
+	height: 60px;
+	font-size: 20px;
+	padding-left: 10px;
 }

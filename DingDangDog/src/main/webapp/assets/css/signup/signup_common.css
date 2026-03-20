@@ -162,7 +162,6 @@ main {
 }
 
 .main-form-checkpw-common-message {
-	display: none;
 	color: red;
 	font-weight: bold;
 	text-align: center;
@@ -386,7 +385,6 @@ main {
 	text-align: center;
 	color: red;
 	font-weight: bold;
-	display: none;
 }
 
 .verification-common-btn button {

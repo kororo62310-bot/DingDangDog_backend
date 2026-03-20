@@ -19,7 +19,7 @@
 	FROM ddd_user u JOIN ddd_user_shelter s ON u.user_number = s.user_number
 	WHERE u.user_type = 'S'
 	ORDER BY s.shelter_certification ASC)
-WHERE rownum <= 5 ;
+WHERE rownum <= 5
 ]]>
 
 	</select>

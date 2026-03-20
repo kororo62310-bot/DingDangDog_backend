@@ -280,8 +280,8 @@ hr{
 #pw-check-message,
 #nickname-success,
 #nickname-error,
-#verify-message,
-#password-check-error{
+#verify-message
+{
   display:none;
 }
 

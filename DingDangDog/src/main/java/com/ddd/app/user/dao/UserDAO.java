@@ -20,8 +20,13 @@ public class UserDAO {
 	}
 
 	// 비밀번호변경(조회)
-	public int findPw(UserDTO userDTO) {
+	public Integer findPw(UserDTO userDTO) {
 		return sqlSession.selectOne("user.findPw", userDTO);
+	}
+
+	// 비밀번호변경
+	public void resetPw(UserDTO userDTO) {
+		sqlSession.update("user.resetPw", userDTO);
 	}
 
 	// 아이디 중복확인
@@ -37,6 +42,21 @@ public class UserDAO {
 	// 이메일 중복확인
 	public boolean checkEmail(String userEmail) {
 		return (Integer) (sqlSession.selectOne("user.checkEmail", userEmail)) < 1;
+	}
+
+	// 공통
+	public void insertUser(UserDTO userDTO) {
+		sqlSession.insert("user.insertUser", userDTO);
+	}
+
+	// 일반 추가
+	public void insertCommonUser(UserDTO userDTO) {
+		sqlSession.insert("user.insertCommonUser", userDTO);
+	}
+
+	// 보호소 추가
+	public void insertUserShelter(UserDTO userDTO) {
+		sqlSession.insert("user.insertUserShelter", userDTO);
 	}
 
 }
