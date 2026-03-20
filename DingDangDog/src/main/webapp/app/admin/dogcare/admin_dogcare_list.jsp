@@ -31,7 +31,7 @@
 			</div>
 
 			<!-- 리스트 영역 -->
-			<div class="admin-main-content">
+			<div class="admin-main-content admin-box-shadow">
 
 				<!-- 헤더 -->
 				<div class="admin-dogcare-list-header">
@@ -66,7 +66,7 @@
 			<div class="admin-main-section-footer">
 
 				<!-- 검색 -->
-				<form method="get" action="/admin/dogcare/list.do">
+				<form method="get" action="${pageContext.request.contextPath}/admin/adminCareListOk.ad">
 					<div class="search-box">
 
 						<select name="type" class="search-select admin-box-shadow">
@@ -87,7 +87,7 @@
 						<!-- 이전 버튼 -->
 						<c:if test="${prev}">
 							<li><a
-								href="${pageContext.request.contextPath}/admin/adminCareListOk?page=${startPage - 1}&type=${type}&keyword=${keyword}">
+								href="${pageContext.request.contextPath}/admin/adminCareListOk.ad?page=${startPage - 1}&type=${type}&keyword=${keyword}">
 									<button class="prev-btn">&lt;</button>
 							</a></li>
 						</c:if>
@@ -95,7 +95,7 @@
 						<!-- 페이지 번호 -->
 						<c:forEach var="i" begin="${startPage}" end="${endPage}">
 							<li><a
-								href="${pageContext.request.contextPath}/admin/adminCareListOk?page=${i}&type=${type}&keyword=${keyword}">
+								href="${pageContext.request.contextPath}/admin/adminCareListOk.ad?page=${i}&type=${type}&keyword=${keyword}">
 									<button class="page-item ${i == page ? 'current-page' : ''}">
 										${i}</button>
 							</a></li>
@@ -104,7 +104,7 @@
 						<!-- 다음 버튼 -->
 						<c:if test="${next}">
 							<li><a
-								href="${pageContext.request.contextPath}/admin/adminCareListOk?page=${endPage + 1}&type=${type}&keyword=${keyword}">
+								href="${pageContext.request.contextPath}/admin/adminCareListOk.ad?page=${endPage + 1}&type=${type}&keyword=${keyword}">
 									<button class="next-btn">&gt;</button>
 							</a></li>
 						</c:if>

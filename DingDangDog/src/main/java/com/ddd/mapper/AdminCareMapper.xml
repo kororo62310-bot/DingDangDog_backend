@@ -11,6 +11,10 @@
 	<!-- 멍케어 목록 -->
 	<select id="selectCareList" parameterType="map"
 		resultType="AdminCareDTO">
+		<![CDATA[
+		select * from (
+			select rownum as rnum, subquery.*
+			from (
 		SELECT c.care_number, c.care_title, c.care_date,
 		u.user_nickname, c.care_write_date
 		FROM ddd_care c
@@ -20,6 +24,8 @@
 		WHERE c.care_status = 'open'
 		ORDER BY
 		c.care_date ASC
+		)subquery
+		)where rnum between #{startRow} and #{endRow}	]]>
 	</select>
 	<!-- 멍케어 목록 검색 -->
 	<select id="searchCareList" parameterType="map"
@@ -57,11 +63,14 @@
 	<!-- 신청 현황 -->
 	<select id="selectApplyStatus" parameterType="Integer"
 		resultType="com.ddd.app.admin.dto.AdminCareDTO">
-		SELECT c.care_number, c.care_title, COUNT(a.apply_number) || '/' ||
+		SELECT c.care_number, c.care_title, COUNT(a.apply_number)
+		|| '/' ||
 		c.care_recruit AS apply_status
 		FROM ddd_care c
-		LEFT JOIN ddd_care_apply a ON c.care_number = a.care_number
-		WHERE c.care_number = #{careNumber}
+		LEFT JOIN
+		ddd_care_apply a ON c.care_number = a.care_number
+		WHERE c.care_number =
+		#{careNumber}
 		GROUP BY c.care_number, c.care_title, c.care_recruit
 	</select>
 
