@@ -1,5 +1,6 @@
 package com.ddd.app.dogcare.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -76,6 +77,19 @@ public class CareDAO {
 		System.out.println("신청 결과 : " + result);
 		return result;
 	}
+	
+	// 중복신청확
+	public int checkDuplicateApply(int careNumber, int userNumber) {
+        System.out.println("=== 중복 신청 체크 실행 ===");
+        Map<String, Integer> params = new HashMap<>();
+        params.put("careNumber", careNumber);
+        params.put("userNumber", userNumber);
+        
+        // 중복 신청 체크 쿼리 실행
+        int count = sqlSession.selectOne("care.checkDuplicateApply", params);
+        System.out.println("중복 신청 여부: " + count);
+        return count;  // count > 0이면 이미 신청한 상태
+    }
 
 	// 멍! 케어 신청 취소
 	public int cancelApply(Map<String, Integer> map) {

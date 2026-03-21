@@ -92,17 +92,30 @@
 
 	<!-- 멍! 케어 신청 -->
 	<insert id="applyCare" parameterType="CareApplyDTO">
-	<![CDATA[
-	INSERT INTO ddd_care_apply(apply_number, care_number, user_number, apply_date)
-	SELECT SEQ_CARE_APPLY.NEXTVAL, #{careNumber}, #{userNumber}, SYSDATE
-	FROM DDD_CARE c
-	WHERE c.care_number = #{careNumber}
-	AND (SELECT COUNT(*)
-    FROM ddd_care_apply
-    WHERE care_number = c.care_number) < c.care_recruit
-	AND c.care_status = 'open'
-	]]>
+    <![CDATA[
+    INSERT INTO ddd_care_apply (apply_number, care_number, user_number, apply_date)
+    SELECT SEQ_CARE_APPLY.NEXTVAL, #{careNumber}, #{userNumber}, SYSDATE
+    FROM DUAL
+    WHERE EXISTS (
+        SELECT 1
+        FROM DDD_CARE c
+        WHERE c.care_number = #{careNumber}
+        AND (SELECT COUNT(*) 
+             FROM ddd_care_apply 
+             WHERE care_number = c.care_number) < c.care_recruit
+        AND c.care_status = 'open'
+    )
+    ]]>
 	</insert>
+
+	<!-- 중복신청확 -->
+	<select id="checkDuplicateApply" parameterType="map"
+		resultType="int">
+		SELECT COUNT(*)
+		FROM ddd_care_apply
+		WHERE care_number = #{careNumber}
+		AND user_number = #{userNumber}
+	</select>
 
 	<!-- 봉사 신청 인원 수 증가 -->
 	<update id="incrementApplyCount" parameterType="int">
