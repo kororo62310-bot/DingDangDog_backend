@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
   // 신청현황 클릭
   applyBtn.addEventListener("click", function(){
+	console.log("123sssss")
     modal.style.display = "block";
   });
 

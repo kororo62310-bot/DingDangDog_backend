@@ -121,6 +121,12 @@ public class CareDAO {
 		return sqlSession.selectOne("care.getApplyStatus", careNumber);
 	}
 
+	// 멍! 케어 신청 후 인원 증가
+	public void incrementApplyCount(int careNumber) {
+	    System.out.println("봉사 신청 인원 수 증가");
+	    sqlSession.update("care.incrementApplyCount", careNumber);  // apply_count 증가
+	}
+	
 	// 회원 정보 확인
 	public boolean checkCareOwner(int careNumber, int userNumber) {
 	    // SQL 쿼리로 careNumber에 해당하는 게시글의 userNumber를 가져온다

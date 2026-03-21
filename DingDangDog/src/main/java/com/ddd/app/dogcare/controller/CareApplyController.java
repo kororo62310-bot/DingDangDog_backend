@@ -28,6 +28,9 @@ public class CareApplyController implements Execute{
 		// 봉사 신청
 		careDAO.applyCare(dto);
 		
+		// 봉사 신청 인원 수 증가
+        careDAO.incrementApplyCount(careNumber);
+		
 		result.setPath("/app/care/detail.ca?careNumber=" + careNumber);
 		result.setRedirect(true);
 
