@@ -120,9 +120,9 @@ public class MypageFrontController extends HttpServlet {
 			System.out.println("일반회원 내가 신청한 멍! 케어 목록 페이지 이동 완료");
 			break;
 		case "/mypage/writeCareList.mp":
-			System.out.println("일반회원 내가 신청한 멍! 케어 목록 페이지 이동 요청");
+			System.out.println("보호소회원 내가 등록한 멍! 케어 목록 페이지 이동 요청");
 			result = new WriteCareListController().execute(request, response);
-			System.out.println("일반회원 내가 신청한 멍! 케어 목록 페이지 이동 완료");
+			System.out.println("보호소회원 내가 등록한 멍! 케어 목록 페이지 이동 완료");
 			break;
 		case "/mypage/matchingResult.mp":
 			System.out.println("일반회원 내가 작성한 멍! 매칭 목록 페이지 이동 요청");

@@ -48,7 +48,7 @@
 					<div class="dogcare-number">봉사 날짜</div>
 					<div class="dogcare-title">제목</div>
 					<div class="dogcare-date">신청 현황</div>
-					<div class="dogcare-nickname">닉네임</div>
+					<div class="dogcare-nickname">보호소 명</div>
 					<div class="dogcare-registdate">작성 날짜</div>
 				</div>
 
@@ -62,7 +62,7 @@
 								${care.careTitle} </a>
 						</div>
 						<div class="dogcare-applystatus">${care.applyStatus}</div>
-						<div class="dogcare-nickname">${care.userNickname}</div>
+						<div class="dogcare-nickname">${care.shelterName}</div>
 						<div class="dogcare-registdate">${care.careWriteDate}</div>
 					</div>
 				</c:forEach>
