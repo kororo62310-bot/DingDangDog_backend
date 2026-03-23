@@ -6,7 +6,7 @@ const archiveData = [
   { id: 5, name: "두부", info: "포메라니안 | 2살 | 수컷" },
   { id: 6, name: "까미", info: "시츄 | 5살 | 암컷" },
   { id: 7, name: "몽이", info: "웰시코기 | 3살 | 수컷" },
-  { id: 8, name: "사랑", info: "비숑 | 2살 | 암컷" },
+  { id: 8, name: "사랑", info: "비숑 | 2살 | 암컷"  },
   { id: 9, name: "별이", info: "믹스견 | 1살 | 암컷" },
   { id: 10, name: "탄이", info: "진도견 | 6살 | 수컷" },
   { id: 11, name: "구름", info: "사모예드 | 2살 | 수컷" },

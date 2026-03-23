@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ddd.app.Result;
-import com.ddd.app.dogarchive.controller.ArchiveListController;
 import com.ddd.app.dogmatching.controller.MatchingResultListController;
 
 /**
@@ -132,7 +131,7 @@ public class MypageFrontController extends HttpServlet {
 			break;
 		case "/mypage/archiveList.mp":
 			System.out.println("보호소회원 내가 등록한 멍! 카이브 목록 페이지 이동 요청");
-			result = new ArchiveListController().execute(request, response);
+			result = new MypageArchiveListController().execute(request, response);
 			System.out.println("보호소회원 내가 등록한 멍! 카이브 목록 페이지 이동 완료");
 			break;
 		case "/mypage/mypageMain.mp":
