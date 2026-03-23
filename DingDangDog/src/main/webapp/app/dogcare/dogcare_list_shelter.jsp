@@ -72,11 +72,11 @@
 					method="get">
 					<div class="search-box">
 						<select name="type" class="search-select box-shadow">
-							<option value="shelter">보호소명</option>
-							<option value="title">제목</option>
+							<option value="shelter" ${type == 'shelter' ? 'selected' : ''}>보호소명</option>
+							<option value="title" ${type == 'title' ? 'selected' : ''}>제목</option>
 						</select> <input type="text" name="keyword" class="search-input box-shadow"
 							value="${keyword}" />
-						<button class="btn-search box-shadow">검색</button>
+						<button type="submit" class="btn-search box-shadow">검색</button>
 					</div>
 				</form>
 
