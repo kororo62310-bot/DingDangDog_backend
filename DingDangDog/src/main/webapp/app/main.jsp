@@ -42,14 +42,12 @@
                 <!-- 멍카이브 카드 영역 -->
                 <section class="card-banner-section">
                     <div class="card-banner">
-                        <button type="button" class="slide-btn-left">
-                            <img src="${pageContext.request.contextPath}/assets/img/1.png" alt="이전">
-                        </button>
-
-                        <div class="card-list" id="main-card-list"></div>
-
-                        <button type="button" class="slide-btn-right">
-                            <img src="${pageContext.request.contextPath}/assets/img/1.png" alt="다음">
+						<button type="button" class="slide-btn-left" id="archive-prev-btn">&lt;</button>
+						
+						<div class="card-list" id="main-card-list"></div>
+						
+						<button type="button" class="slide-btn-right" id="archive-next-btn">&gt;</button>
+                           
                         </button>
                     </div>
                 </section>
