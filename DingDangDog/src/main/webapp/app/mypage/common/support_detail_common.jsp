@@ -99,7 +99,7 @@
 									method="post" style="display: inline;">
 									<input type="hidden" name="inquiryNumber"
 										value="${inquiry.inquiryNumber}">
-									<button type="submit" class="btn-delete">문의글 삭제</button>
+									<button type="submit" class="btn-delete" onclick="if(!confirm('정말 삭제하시겠습니까?')) return false;">문의글 삭제</button>
 								</form>
 
 							</div>
