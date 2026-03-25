@@ -26,9 +26,9 @@
     <div class="h-right-menu">
       <div class="h-user-section">
         <div class="h-user-info-group">
-          <img src="${pageContext.request.contextPath}/assets/img/1.png" alt="user-icon" class="h-user-section-img">
+          <%-- <img src="${pageContext.request.contextPath}/assets/img/1.png" alt="user-icon" class="h-user-section-img"> --%>
           <div class="h-user-text-stack">
-            <span class="h-user-nickname">${sessionScope.userNickname}</span>
+            <span class="h-user-nickname">${sessionScope.userNickname}님 환영합니다</span>
             <a href="${pageContext.request.contextPath}/mypage/mypageMain.mp" class="h-mypage-btn">마이페이지</a>
           </div>
         </div>
