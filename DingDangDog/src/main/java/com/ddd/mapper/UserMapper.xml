@@ -1,116 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="user">
 
 	<!-- 회원가입 -->
-	<insert id="insertUser" parameterType="UserDTO">
-		<selectKey keyProperty="userNumber" resultType="int"
-			order="BEFORE">
-			<choose>
-				<when test='userType == "C"'>
-					SELECT seq_common_user.NEXTVAL FROM DUAL
-				</when>
-				<when test='userType == "S"'>
-					SELECT seq_shelter_user.NEXTVAL FROM DUAL
-				</when>
-			</choose>
-		</selectKey>
+	<insert id="insertUser" parameterType="UserDTO"
+			useGeneratedKeys="true"
+			keyProperty="userNumber"
+			keyColumn="user_number">
 		INSERT INTO ddd_user (
-		user_number, user_type, user_id, user_password,
-		user_name,
-		user_nickname, user_gender, user_birth, user_phone,
-		user_email
+			user_type,
+			user_id,
+			user_password,
+			user_name,
+			user_nickname,
+			user_gender,
+			user_birth,
+			user_phone,
+			user_email
 		) VALUES (
-		#{userNumber}, #{userType}, #{userId},
-		#{userPassword}, #{userName},
-		#{userNickname}, #{userGender},
-		#{userBirth}, #{userPhone},
-		#{userEmail}
+			#{userType},
+			#{userId},
+			#{userPassword},
+			#{userName},
+			#{userNickname},
+			#{userGender},
+			#{userBirth},
+			#{userPhone},
+			#{userEmail}
 		)
 	</insert>
+
 	<!-- 일반회원 회원가입 추가정보 -->
 	<insert id="insertCommonUser" parameterType="UserDTO">
-		INSERT INTO
-		ddd_user_common (user_number) VALUES
-		(#{userNumber})
+		INSERT INTO ddd_user_common (
+			user_number
+		) VALUES (
+			#{userNumber}
+		)
 	</insert>
+
 	<!-- 보호소회원 회원가입 추가정보 -->
 	<insert id="insertUserShelter" parameterType="UserDTO">
-		INSERT INTO
-		ddd_user_shelter (
-		user_number,
-		shelter_name,
-		shelter_business_number,
-		shelter_zipcode,
-		shelter_address,
-		shelter_address_detail
+		INSERT INTO ddd_user_shelter (
+			user_number,
+			shelter_name,
+			shelter_business_number,
+			shelter_zipcode,
+			shelter_address,
+			shelter_address_detail
 		) VALUES (
-		#{userNumber},
-		#{shelterName},
-		#{shelterBusinessNumber},
-		#{shelterZipcode},
-		#{shelterAddress},
-		#{shelterAddressDetail}
+			#{userNumber},
+			#{shelterName},
+			#{shelterBusinessNumber},
+			#{shelterZipcode},
+			#{shelterAddress},
+			#{shelterAddressDetail}
 		)
 	</insert>
 
 	<!-- 로그인 -->
 	<select id="login" parameterType="com.ddd.app.user.dto.UserDTO"
-		resultType="com.ddd.app.user.dto.UserDTO">
+			resultType="com.ddd.app.user.dto.UserDTO">
 		SELECT
-		user_number AS userNumber,
-		user_nickname AS
-		userNickname,
-		user_type AS userType,
-		user_status AS userStatus FROM
-		ddd_user
+			user_number AS userNumber,
+			user_nickname AS userNickname,
+			user_type AS userType,
+			user_status AS userStatus
+		FROM ddd_user
 		WHERE user_id = #{userId}
-		AND user_password = #{userPassword}
-		AND user_type = #{userType}
+		  AND user_password = #{userPassword}
+		  AND user_type = #{userType}
 	</select>
 
 	<!-- id 중복검사 -->
 	<select id="checkId" parameterType="String" resultType="int">
-		select
-		count(user_number) from ddd_user
-		where user_id = #{userId}
+		SELECT COUNT(user_number)
+		FROM ddd_user
+		WHERE user_id = #{userId}
 	</select>
 
 	<!-- 닉네임 중복검사 -->
-	<select id="checkNickName" parameterType="String"
-		resultType="int">
-		select
-		count(user_number) from ddd_user
-		where user_nickname =
-		#{userNickname}
+	<select id="checkNickName" parameterType="String" resultType="int">
+		SELECT COUNT(user_number)
+		FROM ddd_user
+		WHERE user_nickname = #{userNickname}
 	</select>
 
 	<!-- 이메일 중복검사 -->
 	<select id="checkEmail" parameterType="String" resultType="int">
-		select
-		count(user_number) from ddd_user
-		where user_email =
-		#{userEmail}
+		SELECT COUNT(user_number)
+		FROM ddd_user
+		WHERE user_email = #{userEmail}
 	</select>
 
-
-	<!-- 비밀번호변경 -->
-	<!-- 회원번호 받아오기 -->
+	<!-- 비밀번호변경용 회원번호 조회 -->
 	<select id="findPw" parameterType="UserDTO" resultType="int">
-		SELECT
-		user_number FROM ddd_user
+		SELECT user_number
+		FROM ddd_user
 		WHERE user_id = #{userId}
-		AND user_phone =
-		#{userPhone}
+		  AND user_phone = #{userPhone}
 	</select>
 
 	<!-- 비밀번호 변경 -->
 	<update id="resetPw" parameterType="UserDTO">
 		UPDATE ddd_user
-		SET
-		USER_PASSWORD = #{userPassword}
-		WHERE USER_NUMBER = #{userNumber}
+		SET user_password = #{userPassword}
+		WHERE user_number = #{userNumber}
 	</update>
-
 
 </mapper>
