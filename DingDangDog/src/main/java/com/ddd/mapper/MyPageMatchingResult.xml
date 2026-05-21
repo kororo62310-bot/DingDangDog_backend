@@ -5,17 +5,14 @@
 
 	<select id="selectMatchingList" parameterType="int"
 		resultType="com.ddd.app.mypage.dto.MyPageDogMatchingDTO">
-		SELECT *
-		FROM (
 		SELECT
-		result_number AS resultNumber,
-		user_number AS userNumber,
-		TO_CHAR(result_created_date, 'YYYY.MM.DD HH24:MI') AS resultCreatedDate
+			result_number AS resultNumber,
+			user_number AS userNumber,
+			DATE_FORMAT(result_created_date, '%Y.%m.%d %H:%i') AS resultCreatedDate
 		FROM ddd_match_result
 		WHERE user_number = #{userNumber}
 		ORDER BY result_created_date DESC
-		)
-		WHERE ROWNUM &lt;= 5
+		LIMIT 5
 	</select>
 
 </mapper>
