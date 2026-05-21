@@ -20,10 +20,18 @@
 			inquiry_title,
 			inquiry_date,
 			user_number
-		FROM ddd_inquiry
-		WHERE user_number = #{userNumber}
-		ORDER BY inquiry_number DESC
-		LIMIT #{startRow}, #{rowCount}
+		FROM (
+			SELECT
+				answer_status,
+				inquiry_number,
+				inquiry_title,
+				inquiry_date,
+				user_number,
+				ROW_NUMBER() OVER (ORDER BY inquiry_number DESC) AS rnum
+			FROM ddd_inquiry
+			WHERE user_number = #{userNumber}
+		) sub
+		WHERE rnum BETWEEN #{startRow} AND #{endRow}
 	</select>
 
 	<!-- 상세 문의글 조회 -->
