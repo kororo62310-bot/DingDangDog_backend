@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="mypageArchive">
 
-    <select id="selectMyArchive" parameterType="_int" resultType="com.ddd.app.mypage.dto.MypageArchiveDTO">
-        SELECT
-            A.DOG_NUMBER, 
-            A.DOG_NAME, 
-            A.DOG_BREED, 
-            US.SHELTER_NAME, 
-            A.DOG_SAFE_DATE,
-            AI.ARCHIVE_IMG_PATH
-        FROM DDD_ARCHIVE A
-        LEFT JOIN DDD_USER_SHELTER US ON A.USER_NUMBER = US.USER_NUMBER
-        LEFT JOIN (
-            SELECT DOG_NUMBER, MIN(ARCHIVE_IMG_NUMBER) AS MIN_IMG_NUMBER
-            FROM DDD_ARCHIVE_IMG 
-            GROUP BY DOG_NUMBER
-        ) FIRST_IMG ON A.DOG_NUMBER = FIRST_IMG.DOG_NUMBER
-        LEFT JOIN DDD_ARCHIVE_IMG AI ON FIRST_IMG.MIN_IMG_NUMBER = AI.ARCHIVE_IMG_NUMBER
-        WHERE A.USER_NUMBER = #{userNumber}
-        ORDER BY A.DOG_NUMBER DESC
-    </select>
+	<select id="selectMyArchive" parameterType="int" resultType="com.ddd.app.mypage.dto.MypageArchiveDTO">
+		SELECT
+			a.dog_number,
+			a.dog_name,
+			a.dog_breed,
+			us.shelter_name,
+			a.dog_safe_date,
+			ai.archive_img_path
+		FROM ddd_archive a
+		LEFT JOIN ddd_user_shelter us ON a.user_number = us.user_number
+		LEFT JOIN (
+			SELECT dog_number, MIN(archive_img_number) AS min_img_number
+			FROM ddd_archive_img
+			GROUP BY dog_number
+		) first_img ON a.dog_number = first_img.dog_number
+		LEFT JOIN ddd_archive_img ai ON first_img.min_img_number = ai.archive_img_number
+		WHERE a.user_number = #{userNumber}
+		ORDER BY a.dog_number DESC
+	</select>
 
 </mapper>
