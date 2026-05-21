@@ -2,25 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="matching">
 
-	<insert id="insertResult" parameterType="com.ddd.app.dogmatching.dto.MatchingResultDTO">
-		INSERT INTO DDD_MATCH_RESULT (
-			RESULT_NUMBER,
-			USER_NUMBER,
-			DOG_ACTIVITY,
-			DOG_SOCIALITY,
-			DOG_INDEPENDENCE,
-			DOG_BARKING,
-			DOG_GROOMING,
-			RESULT_CREATED_DATE
+	<insert id="insertResult" parameterType="com.ddd.app.dogmatching.dto.MatchingResultDTO"
+			useGeneratedKeys="true"
+			keyProperty="resultNumber"
+			keyColumn="result_number">
+		INSERT INTO ddd_match_result (
+			user_number,
+			dog_activity,
+			dog_sociality,
+			dog_independence,
+			dog_barking,
+			dog_grooming,
+			result_created_date
 		) VALUES (
-			SEQ_MATCH_RESULT.NEXTVAL,
 			#{userNumber},
 			#{dogActivity},
 			#{dogSociality},
 			#{dogIndependence},
 			#{dogBarking},
 			#{dogGrooming},
-			SYSDATE
+			NOW()
 		)
 	</insert>
 
@@ -47,36 +48,39 @@
 		WHERE a.dog_number = #{dogNumber}
 	</select>
 
-	<select id="countSavedResults" parameterType="int"
-		resultType="int">
-		SELECT COUNT(*) FROM DDD_MATCH_RESULT WHERE USER_NUMBER =
-		#{userNumber}
+	<select id="countSavedResults" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM ddd_match_result
+		WHERE user_number = #{userNumber}
 	</select>
 
 	<delete id="deleteOldestResult" parameterType="int">
-		DELETE FROM DDD_MATCH_RESULT
-		WHERE RESULT_NUMBER = (
-			SELECT RESULT_NUMBER
+		DELETE FROM ddd_match_result
+		WHERE result_number = (
+			SELECT result_number
 			FROM (
-				SELECT RESULT_NUMBER
-				FROM DDD_MATCH_RESULT
-				WHERE USER_NUMBER = #{userNumber}
-				ORDER BY RESULT_CREATED_DATE ASC
-			)
-			WHERE ROWNUM = 1
+				SELECT result_number
+				FROM ddd_match_result
+				WHERE user_number = #{userNumber}
+				ORDER BY result_created_date ASC
+				LIMIT 1
+			) oldest_result
 		)
 	</delete>
-	<select id="selectMyResults" parameterType="int"
-		resultType="com.ddd.app.dogmatching.dto.MatchingResultDTO">
+
+	<select id="selectMyResults" parameterType="int" resultType="com.ddd.app.dogmatching.dto.MatchingResultDTO">
 		SELECT
-		RESULT_NUMBER, USER_NUMBER,
-		DOG_ACTIVITY, DOG_SOCIALITY, DOG_INDEPENDENCE, DOG_BARKING, DOG_GROOMING,
-		TO_CHAR(RESULT_CREATED_DATE, 'YYYY.MM.DD') AS RESULT_CREATED_DATE
-		FROM
-		DDD_MATCH_RESULT
-		WHERE USER_NUMBER = #{userNumber}
-		ORDER BY
-		RESULT_NUMBER DESC
+			result_number,
+			user_number,
+			dog_activity,
+			dog_sociality,
+			dog_independence,
+			dog_barking,
+			dog_grooming,
+			DATE_FORMAT(result_created_date, '%Y.%m.%d') AS result_created_date
+		FROM ddd_match_result
+		WHERE user_number = #{userNumber}
+		ORDER BY result_number DESC
 	</select>
 	
 	<select id="selectAllDogScore" resultType="com.ddd.app.dogmatching.dto.ArchiveScoreDTO">
@@ -90,50 +94,45 @@
 		FROM ddd_archive_score
 	</select>
 	
-	
-	<!-- 새 result_number 미리 가져오기 -->
 	<select id="getNextResultNumber" resultType="int">
-		SELECT SEQ_MATCH_RESULT.NEXTVAL
-		FROM DUAL
+		SELECT IFNULL(MAX(result_number), 0) + 1
+		FROM ddd_match_result
 	</select>
 	
-	<!-- 매칭 결과에 추천된 강아지 저장 -->
-	<insert id="insertResultDog" parameterType="com.ddd.app.dogmatching.dto.MatchingResultDTO">
-		INSERT INTO DDD_MATCH_RESULT_DOG (
-			RESULT_DOG_NUMBER,
-			RESULT_NUMBER,
-			DOG_NUMBER,
-			RESULT_RANK
+	<insert id="insertResultDog" parameterType="com.ddd.app.dogmatching.dto.MatchingResultDTO"
+			useGeneratedKeys="true"
+			keyProperty="resultDogNumber"
+			keyColumn="result_dog_number">
+		INSERT INTO ddd_match_result_dog (
+			result_number,
+			dog_number,
+			result_rank
 		) VALUES (
-			SEQ_MATCH_RESULT_DOG.NEXTVAL,
 			#{resultNumber},
 			#{dogNumber},
 			#{resultRank}
 		)
 	</insert>
 	
-	<!-- 저장된 결과에 속한 강아지 번호들 조회 -->
 	<select id="selectResultDogNumbers" parameterType="int" resultType="int">
-		SELECT DOG_NUMBER
-		FROM DDD_MATCH_RESULT_DOG
-		WHERE RESULT_NUMBER = #{resultNumber}
-		ORDER BY RESULT_RANK ASC
+		SELECT dog_number
+		FROM ddd_match_result_dog
+		WHERE result_number = #{resultNumber}
+		ORDER BY result_rank ASC
 	</select>
 	
-	<!-- 저장된 매칭 결과 1건 조회 -->
 	<select id="selectResultByResultNumber" parameterType="int" resultType="com.ddd.app.dogmatching.dto.MatchingResultDTO">
 		SELECT
-			RESULT_NUMBER,
-			USER_NUMBER,
-			DOG_ACTIVITY,
-			DOG_SOCIALITY,
-			DOG_INDEPENDENCE,
-			DOG_BARKING,
-			DOG_GROOMING,
-			RESULT_CREATED_DATE
-		FROM DDD_MATCH_RESULT
-		WHERE RESULT_NUMBER = #{resultNumber}
+			result_number,
+			user_number,
+			dog_activity,
+			dog_sociality,
+			dog_independence,
+			dog_barking,
+			dog_grooming,
+			DATE_FORMAT(result_created_date, '%Y.%m.%d') AS result_created_date
+		FROM ddd_match_result
+		WHERE result_number = #{resultNumber}
 	</select>
 	
-
 </mapper>
