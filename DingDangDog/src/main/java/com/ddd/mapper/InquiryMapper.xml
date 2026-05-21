@@ -50,10 +50,7 @@
 	</select>
 
 	<!-- 문의글 작성 -->
-	<insert id="insert" parameterType="InquiryWriteDTO"
-			useGeneratedKeys="true"
-			keyProperty="inquiryNumber"
-			keyColumn="inquiry_number">
+	<insert id="insert" parameterType="InquiryWriteDTO">
 		INSERT INTO ddd_inquiry (
 			user_number,
 			inquiry_title,
